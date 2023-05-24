@@ -5,7 +5,7 @@ require './gradebook'
 
 RSpec.describe Gradebook do
   it "exists and has readable attributes" do
-    gradebook = Gradebook.new(instructor)
+    gradebook = Gradebook.new("Ms. Wiley")
 
     expect(gradebook).to be_a Gradebook
   end
