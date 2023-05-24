@@ -20,6 +20,4 @@ class Course
   def enroll(student)
     @students << student
   end
-
-
 end
