@@ -17,7 +17,11 @@ RSpec.describe Gradebook do
   end
 
   it "starts without courses and can add them" do
-
+    expect(@gradebook.courses).to eq []
+    @gradebook.add_course(@course1)
+    @gradebook.add_course(@course2)
+    
+    expect(@gradebook.courses).to eq [@course1, @course2]
   end
 
 end
