@@ -13,15 +13,28 @@ RSpec.describe Gradebook do
     @student3 = Student.new({name: "Luca", age: 24})    
   end
   it "exists and has readable attributes" do
-    expect(gradebook).to be_a Gradebook
+    expect(@gradebook).to be_a Gradebook
   end
 
   it "starts without courses and can add them" do
     expect(@gradebook.courses).to eq []
+
     @gradebook.add_course(@course1)
     @gradebook.add_course(@course2)
     
     expect(@gradebook.courses).to eq [@course1, @course2]
+  end
+  
+  it "can list the students in its courses" do
+    @gradebook.add_course(@course1)
+    @gradebook.add_course(@course2)
+    @course1.enroll(@student1)
+    @course1.enroll(@student2)
+    @course2.enroll(@student3)
+
+    expect(@gradebook.list_all_students).to eq({
+      @course1: [@student1, @student2], @course2: [@student3]
+    })
   end
 
 end
