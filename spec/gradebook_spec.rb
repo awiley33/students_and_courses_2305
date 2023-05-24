@@ -1,7 +1,7 @@
 require 'rspec'
 require './lib/course'
 require './lib/student'
-require './gradebook'
+require './lib/gradebook'
 
 RSpec.describe Gradebook do
   before do
@@ -33,7 +33,7 @@ RSpec.describe Gradebook do
     @course2.enroll(@student3)
 
     expect(@gradebook.list_all_students).to eq({
-      @course1: [@student1, @student2], @course2: [@student3]
+      @course1 => [@student1, @student2], @course2 => [@student3]
     })
   end
 
