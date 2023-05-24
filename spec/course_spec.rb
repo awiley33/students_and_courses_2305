@@ -3,15 +3,20 @@ require './lib/course'
 require './lib/student'
 
 RSpec.describe Course do 
-  it "exists and has readable attributes" do
-    course = Course.new("Calculus", 2)  
-
-    expect(course.name).to eq "Calculus"
-    expect(course.capacity).to eq 2
-    expect(course.students).to eq []
+  before do
+    @course = Course.new("Calculus", 2)  
+    @student1 = Student.new({name: "Morgan", age: 21})
+    @student2 = Student.new({name: "Jordan", age: 29})    
   end
 
-  # # it "can check if the course is full" do
+  it "exists and has readable attributes" do
+    expect(@course.name).to eq "Calculus"
+    expect(@course.capacity).to eq 2
+    expect(@course.students).to eq []
+  end
 
-  # end
+  it "can check if the course is full" do
+    @
+
+  end
 end
